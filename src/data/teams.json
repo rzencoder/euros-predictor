@@ -1,0 +1,91 @@
+{
+  "teams": [
+    { "name": "Turkey", "flag": "" },
+    { "name": "Italy", "flag": "" },
+    { "name": "Wales", "flag": "" },
+    {
+      "name": "Switzerland",
+      "flag": ""
+    },
+    {
+      "name": "Denmark",
+      "flag": ""
+    },
+    {
+      "name": "Finland",
+      "flag": ""
+    },
+    {
+      "name": "Belgium",
+      "flag": ""
+    },
+    {
+      "name": "Russia",
+      "flag": ""
+    },
+    {
+      "name": "Netherlands",
+      "flag": ""
+    },
+    {
+      "name": "Ukraine",
+      "flag": ""
+    },
+    {
+      "name": "Austria",
+      "flag": ""
+    },
+    {
+      "name": "North Macedonia",
+      "flag": ""
+    },
+    {
+      "name": "England",
+      "flag": ""
+    },
+    {
+      "name": "Croatia",
+      "flag": ""
+    },
+    {
+      "name": "Scotland",
+      "flag": ""
+    },
+    {
+      "name": "Czech Republic",
+      "flag": ""
+    },
+    {
+      "name": "Spain",
+      "flag": ""
+    },
+    {
+      "name": "Sweden",
+      "flag": ""
+    },
+    {
+      "name": "Poland",
+      "flag": ""
+    },
+    {
+      "name": "Slovakia",
+      "flag": ""
+    },
+    {
+      "name": "Hungary",
+      "flag": ""
+    },
+    {
+      "name": "Portugal",
+      "flag": ""
+    },
+    {
+      "name": "France",
+      "flag": ""
+    },
+    {
+      "name": "Germany",
+      "flag": ""
+    }
+  ]
+}
