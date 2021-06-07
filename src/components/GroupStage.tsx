@@ -12,7 +12,7 @@ export default function GroupStage({ matches, teams, handleClick }) {
     }
     const groupedTeams = groupTeams([...teams])
     return (
-        <div>
+        <div className="flex">
             {matches.map((el, index) => {
                 return <Group name={el.name} groupIndex={index} teams={groupedTeams[index]} positions={matches[index]} handleClick={handleClick} />
             })}

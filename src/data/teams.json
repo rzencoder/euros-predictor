@@ -1,91 +1,91 @@
 {
   "teams": [
-    { "name": "Turkey", "flag": "" },
-    { "name": "Italy", "flag": "" },
-    { "name": "Wales", "flag": "" },
+    { "name": "Turkey", "flag": "TR" },
+    { "name": "Italy", "flag": "IT" },
+    { "name": "Wales", "flag": "_wales" },
     {
       "name": "Switzerland",
-      "flag": ""
+      "flag": "CH"
     },
     {
       "name": "Denmark",
-      "flag": ""
+      "flag": "DK"
     },
     {
       "name": "Finland",
-      "flag": ""
+      "flag": "FI"
     },
     {
       "name": "Belgium",
-      "flag": ""
+      "flag": "BE"
     },
     {
       "name": "Russia",
-      "flag": ""
+      "flag": "RU"
     },
     {
       "name": "Netherlands",
-      "flag": ""
+      "flag": "NL"
     },
     {
       "name": "Ukraine",
-      "flag": ""
+      "flag": "UA"
     },
     {
       "name": "Austria",
-      "flag": ""
+      "flag": "AT"
     },
     {
       "name": "North Macedonia",
-      "flag": ""
+      "flag": "MK"
     },
     {
       "name": "England",
-      "flag": ""
+      "flag": "_england"
     },
     {
       "name": "Croatia",
-      "flag": ""
+      "flag": "HR"
     },
     {
       "name": "Scotland",
-      "flag": ""
+      "flag": "_scotland"
     },
     {
       "name": "Czech Republic",
-      "flag": ""
+      "flag": "CZ"
     },
     {
       "name": "Spain",
-      "flag": ""
+      "flag": "ES"
     },
     {
       "name": "Sweden",
-      "flag": ""
+      "flag": "SE"
     },
     {
       "name": "Poland",
-      "flag": ""
+      "flag": "PL"
     },
     {
       "name": "Slovakia",
-      "flag": ""
+      "flag": "SK"
     },
     {
       "name": "Hungary",
-      "flag": ""
+      "flag": "HU"
     },
     {
       "name": "Portugal",
-      "flag": ""
+      "flag": "PT"
     },
     {
       "name": "France",
-      "flag": ""
+      "flag": "FR"
     },
     {
       "name": "Germany",
-      "flag": ""
+      "flag": "DE"
     }
   ]
 }
