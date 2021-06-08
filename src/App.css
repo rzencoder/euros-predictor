@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Poppins";
 }
 
 .App-logo {
@@ -9,6 +10,13 @@
 
 .flex {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.group {
+  min-width: 250px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

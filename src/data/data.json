@@ -4,92 +4,61 @@
       "name": "group a",
       "teams": [],
       "winner": 2,
-      "second": 14,
-      "third": ""
+      "second": 14
     },
     {
       "name": "group b",
       "teams": [],
       "winner": 0,
-      "second": 15,
-      "third": ""
+      "second": 15
     },
     {
       "name": "group c",
       "teams": [],
       "winner": 12,
-      "second": 3,
-      "third": ""
+      "second": 3
     },
     {
       "name": "group d",
       "teams": [],
       "winner": 10,
-      "second": 6,
-      "third": ""
+      "second": 6
     },
     {
       "name": "group e",
       "teams": [],
       "winner": 8,
-      "second": 7,
-      "third": ""
+      "second": 7
     },
     {
       "name": "group f",
       "teams": [],
       "winner": 4,
-      "second": 11,
-      "third": "",
-      "fourth": ""
+      "second": 11
     }
   ],
-  "thirdTeams": ["", "", "", "", "", ""],
+  "thirdTeams": [null, null, null, null, null, null],
   "thirdPositions": [],
   "secondRound": [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
   ],
-  "quarters": [
-    { "name": "quarter1", "home": "", "away": "" },
-    {
-      "name": "quarter2",
-      "home": "",
-      "away": ""
-    },
-    {
-      "name": "quarter3",
-      "home": "",
-      "away": ""
-    },
-    {
-      "name": "quarter4",
-      "home": "",
-      "away": ""
-    }
-  ],
-  "semis": [
-    { "name": "semi1", "home": "", "away": "" },
-    {
-      "name": "semi2",
-      "home": "",
-      "away": ""
-    }
-  ],
-  "final": [{ "name": "final", "home": "", "away": "" }],
-  "winner": []
+  "quarters": [null, null, null, null, null, null, null, null],
+  "semis": [null, null, null, null],
+  "final": [null, null],
+  "champions": [null]
 }

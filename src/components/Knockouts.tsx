@@ -1,4 +1,4 @@
-export default function Knockouts({ teams }) {
+export default function Knockouts({ teams, handleClick, nextRound }) {
     console.log('here')
     const formatTeams = () => {
         const res = [];
@@ -10,12 +10,12 @@ export default function Knockouts({ teams }) {
     const formattedTeams = formatTeams(teams)
     return (
         <div className="flex">
-            {formattedTeams.map(match => {
+            {formattedTeams.map((match, index) => {
                 return (
                     <div>
-                        <div>{match[0].name}</div>
+                        {match[0] && <div onClick={() => handleClick(match[0], index, nextRound)}>{match[0].name}</div>}
                         <div>v</div>
-                        <div>{match[1].name}</div>
+                        {match[1] && <div onClick={() => handleClick(match[1], index, nextRound)}>{match[1].name}</div>}
                     </div>
                 )
             })}
