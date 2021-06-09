@@ -7,9 +7,10 @@ export default function ThirdPlaceLeague({ teams, calculateThirdPlaceLeague, pos
     console.log(teams)
     return (
         <div>
+            <h2>Third Place League</h2>
             {teams.map(team => {
                 return (
-                    <div onClick={() => calculateThirdPlaceLeague(team)}>
+                    <div className="third-place-team" onClick={() => calculateThirdPlaceLeague(team)}>
                         <div>{team.name}</div>
                         <div>{getRanking(team.name)}</div>
                     </div>

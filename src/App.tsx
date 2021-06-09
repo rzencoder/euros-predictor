@@ -103,14 +103,16 @@ function App() {
   console.log(positions)
   return (
     <div className="App">
-      <h1>Euro 2021 Predictor</h1>
+      <h1 className="title">Euro <span>2020</span> Predictor</h1>
       <GroupStage matches={positions.groups} teams={teams.teams} handleClick={handleGroupSelect} />
       {!positions.thirdTeams.some(el => el === null) && <ThirdPlaceLeague calculateThirdPlaceLeague={calculateThirdPlaceLeague} teams={positions.thirdTeams} positions={positions.thirdPositions} />}
-      <Knockouts teams={positions.secondRound} handleClick={handleKnockoutClick} nextRound="quarters" />
-      <Knockouts teams={positions.quarters} handleClick={handleKnockoutClick} nextRound="semis" />
-      <Knockouts teams={positions.semis} handleClick={handleKnockoutClick} nextRound="final" />
-      <Knockouts teams={positions.final} handleClick={handleKnockoutClick} nextRound="champions" />
-      <Champion champion={positions.champions} />
+      <div className="knockout-container">
+        <Knockouts teams={positions.secondRound} handleClick={handleKnockoutClick} nextRound="quarters" title="Round of 16" roundIndex="1" positions={positions} />
+        <Knockouts teams={positions.quarters} handleClick={handleKnockoutClick} nextRound="semis" title="Quarter Finals" roundIndex="2" positions={positions} />
+        <Knockouts teams={positions.semis} handleClick={handleKnockoutClick} nextRound="final" title="Semi Finals" roundIndex="3" positions={positions} />
+        <Knockouts teams={positions.final} handleClick={handleKnockoutClick} nextRound="champions" title="Final" roundIndex="4" positions={positions} />
+
+      </div>
     </div>
   );
 }

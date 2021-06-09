@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Flag from "react-flags";
 
 export default function Group({ name, teams, positions, groupIndex, handleClick }) {
@@ -13,15 +12,17 @@ export default function Group({ name, teams, positions, groupIndex, handleClick 
             <h2>{name}</h2>
             {teams.map(team => {
                 return (
-                    <div className="groupTeam" onClick={() => handleClick(team, groupIndex)}>
-                        <Flag
-                            name={team.flag}
-                            format="svg"
-                            width="40"
-                            basePath="/img/flags"
-                            alt={`${team.name} flag`} />
-                        <div>{team.name}</div>
-                        {getRanking(team.name)}
+                    <div className="group-team-container" onClick={() => handleClick(team, groupIndex)}>
+                        <div className="group-team">
+                            <Flag
+                                name={team.flag}
+                                format="svg"
+                                width="50"
+                                basePath="/img/flags"
+                                alt={`${team.name} flag`} />
+                            <div><div>{team.name}</div></div>
+                        </div>
+                        <div>{getRanking(team.name)}</div>
                     </div>
                 )
             })}
