@@ -1,9 +1,10 @@
-html {
-  color: white;
-  background-color: #0fafaf;
-}
+$blue1: #0fafaf;
+$blue2: #119a9a;
+$blue3: #058288;
 
 body {
+  color: white;
+  background-color: $blue1;
   margin: 0;
 }
 
@@ -15,8 +16,17 @@ body {
   font-size: 50px;
 }
 
+.Collapsible__trigger {
+  background: #e83500;
+  width: 100%;
+  font-weight: 700;
+  font-size: 32px;
+  padding: 5px;
+  display: block;
+}
+
 .title span {
-  color: #119a9a;
+  color: $blue2;
 }
 
 .App {
@@ -33,7 +43,7 @@ body {
 
 .group {
   min-width: 300px;
-  background-color: #119a9a;
+  background-color: $blue2;
   width: 25%;
   margin: 10px;
   padding: 20px 10px;
@@ -50,7 +60,7 @@ body {
   padding: 10px;
   font-size: 18px;
   margin: 10px 0;
-  background: #058288;
+  background: $blue3;
   border-radius: 10px;
 }
 
@@ -64,48 +74,66 @@ body {
   align-items: center;
 }
 
+.third-place-league {
+  background: $blue2;
+  padding: 20px;
+  border-radius: 15px;
+  min-width: 300px;
+  width: 30%;
+  margin: 20px auto;
+}
+
+.third-place-container {
+  display: flex;
+  justify-content: space-between;
+  background: $blue3;
+  padding: 10px;
+  margin: 5px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.third-place-team {
+  display: flex;
+  align-items: center;
+  > div {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+}
+
+.third-place-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #02b7b7;
+  border-radius: 50%;
+}
+
+.tick {
+  color: #208620;
+}
+
+.cross {
+  color: #bd0b0b;
+}
+
 .knockout-stage {
   text-align: center;
   width: 25%;
-  background: #ececec;
   padding-bottom: 50px;
-  border-left: 0.5px dashed #888;
-}
-@media (max-width: 1000px) {
-  .knockout-stage {
+  @media (max-width: 1000px) {
     width: 100%;
-    background: initial;
     padding-bottom: 10px;
   }
-}
-.knockout-stage:nth-of-type(1) {
-  border-left: none;
-}
-.knockout-stage:nth-of-type(4) {
-  border-left: none;
-}
-@media (max-width: 1000px) {
-  .knockout-stage:nth-of-type(4) {
-    padding-bottom: 50px;
-  }
-}
-.knockout-stage:nth-of-type(2n) {
-  background: #f3f3f3;
-}
-@media (max-width: 1000px) {
-  .knockout-stage:nth-of-type(2n) {
-    background: initial;
-  }
-}
-.knockout-stage h2 {
-  font-size: 26px;
-  font-family: "Russo One", sans-serif;
-  font-weight: 700;
-  padding: 20px 0 10px;
-}
-@media (max-width: 1000px) {
-  .knockout-stage h2 {
-    font-size: 32px;
+  h2 {
+    font-size: 26px;
+    font-family: "Russo One", sans-serif;
+    font-weight: 700;
+    padding: 20px 0 10px;
   }
 }
 
@@ -114,16 +142,12 @@ body {
   flex-direction: row;
   padding: 20px;
   justify-content: space-around;
-}
-@media (max-width: 1000px) {
-  .knockout-container {
+  @media (max-width: 1000px) {
     flex-direction: column;
     width: 70%;
     margin: 0 auto;
   }
-}
-@media (max-width: 600px) {
-  .knockout-container {
+  @media (max-width: 600px) {
     width: 90%;
   }
 }
@@ -136,32 +160,30 @@ body {
   height: 100%;
   width: 90%;
   margin: 0 auto;
-}
-.knockout-round-container:nth-of-type(4) {
-  justify-content: center;
-}
-@media (max-width: 1000px) {
-  .knockout-round-container {
+  @media (max-width: 1000px) {
     height: auto;
     width: auto;
     margin: initial;
   }
 }
 
+.knockout-round-container:nth-of-type(4) {
+  justify-content: center;
+}
+
 .knockout-match {
   position: relative;
-  background: #eee;
+  background: $blue2;
   padding: 5px 10px;
   margin: 10px 5px;
   text-align: center;
   z-index: 2;
-  border: 1px solid #ddd;
-  box-shadow: 0px 0px 10px 3px #aaa;
+  box-shadow: 0px 0px 10px 1px rgb(0, 238, 255);
 }
 
 .knockout-team {
-  background: #ddd;
-  padding: 4px;
+  background: $blue3;
+  padding: 10px;
   margin: 5px 0;
   font-size: 18px;
   position: relative;
@@ -297,8 +319,4 @@ body {
 }
 .bracket-4 .bracket-team:after {
   display: none;
-}
-
-.third-place-team {
-  display: flex;
 }
