@@ -4,7 +4,10 @@ export default function Group({ name, teams, positions, groupIndex, handleClick 
     const getRanking = (name) => {
         const index = positions.teams.findIndex(el => el.name === name) + 1
         if (index === 0 && positions.teams.length === 3) return "out"
-        return index === 0 ? "+" : String(index);
+        if (index === 0) return "+"
+        if (index === 1) return "1st"
+        if (index === 2) return "2nd"
+        if (index === 3) return "3rd"
     }
 
     return (
@@ -22,7 +25,9 @@ export default function Group({ name, teams, positions, groupIndex, handleClick 
                                 alt={`${team.name} flag`} />
                             <div><div>{team.name}</div></div>
                         </div>
-                        <div>{getRanking(team.name)}</div>
+                        <div className="group-position">
+                            <div>{getRanking(team.name)}</div>
+                        </div>
                     </div>
                 )
             })}

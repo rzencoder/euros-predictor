@@ -8,23 +8,26 @@ export default function ThirdPlaceLeague({ teams, calculateThirdPlaceLeague, pos
     }
     console.log(teams)
     return (
-        <div className="third-place-league">
-            {teams.map(team => {
-                return (
-                    <div className="third-place-container" onClick={() => calculateThirdPlaceLeague(team)}>
-                        <div className="third-place-team">
-                            <Flag
-                                name={team.flag}
-                                format="svg"
-                                width="50"
-                                basePath="/img/flags"
-                                alt={`${team.name} flag`} />
-                            <div><div>{team.name}</div></div>
+        <div>
+            <div className="info">Check you have chosen a team from each group to finish first, second and third. Then select the four third place teams you think will finish with the most points.</div>
+            <div className="third-place-league">
+                {teams.map(team => {
+                    return (
+                        <div className="third-place-container" onClick={() => calculateThirdPlaceLeague(team)}>
+                            <div className="third-place-team">
+                                <Flag
+                                    name={team.flag}
+                                    format="svg"
+                                    width="50"
+                                    basePath="/img/flags"
+                                    alt={`${team.name} flag`} />
+                                <div><div>{team.name}</div></div>
+                            </div>
+                            <div className="third-place-selector"><div>{getRanking(team.name)}</div></div>
                         </div>
-                        <div className="third-place-selector"><div>{getRanking(team.name)}</div></div>
-                    </div>
-                )
-            })}
+                    )
+                })}
+            </div>
         </div>
     )
 }

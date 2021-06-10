@@ -37,8 +37,14 @@ body {
 .group-stage {
   display: flex;
   margin: 20px;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+}
+
+.info {
+  padding: 30px 30px 10px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .group {
@@ -51,7 +57,8 @@ body {
 }
 
 .group h2 {
-  margin: 0px 0 10px 0;
+  margin: 0px 0 20px 0;
+  text-transform: capitalize;
 }
 
 .group-team-container {
@@ -59,9 +66,11 @@ body {
   justify-content: space-between;
   padding: 10px;
   font-size: 18px;
+  font-weight: 500;
   margin: 10px 0;
   background: $blue3;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .group-team {
@@ -72,6 +81,12 @@ body {
   margin-left: 10px;
   display: flex;
   align-items: center;
+}
+
+.group-position {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
 }
 
 .third-place-league {
@@ -86,11 +101,13 @@ body {
 .third-place-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: $blue3;
   padding: 10px;
   margin: 5px;
   font-weight: 600;
   font-size: 20px;
+  border-radius: 10px;
 }
 
 .third-place-team {
@@ -130,10 +147,10 @@ body {
     padding-bottom: 10px;
   }
   h2 {
-    font-size: 26px;
-    font-family: "Russo One", sans-serif;
+    font-size: 30px;
     font-weight: 700;
     padding: 20px 0 10px;
+    margin: 0;
   }
 }
 
