@@ -8,6 +8,12 @@ body {
   margin: 0;
 }
 
+.container {
+  max-width: 1250px;
+  display: flex;
+  margin: 0 auto;
+}
+
 .title {
   background: linear-gradient(45deg, #050129, #030265);
   padding: 20px;
@@ -26,6 +32,7 @@ body {
   font-size: 32px;
   padding: 5px 0;
   display: block;
+  cursor: pointer;
   @media screen and (max-width: 400px) {
     font-size: 26px;
   }
@@ -127,6 +134,7 @@ body {
 .third-place-team {
   display: flex;
   align-items: center;
+  cursor: pointer;
   > div {
     display: flex;
     align-items: center;
@@ -170,6 +178,7 @@ body {
 
 .knockout-container {
   display: flex;
+  position: relative;
   flex-direction: row;
   padding: 20px;
   justify-content: space-around;
@@ -196,10 +205,6 @@ body {
     width: auto;
     margin: initial;
   }
-}
-
-.knockout-round-container:nth-of-type(4) {
-  justify-content: center;
 }
 
 .knockout-match {
@@ -249,16 +254,6 @@ body {
   font-size: 20px;
 }
 
-@media (max-width: 1200px) {
-  .knockout-team {
-    cursor: initial;
-  }
-}
-.knockout-team:hover .hover-info-container {
-  opacity: 1;
-  display: block;
-}
-
 .bracket-team::before {
   content: "";
   position: absolute;
@@ -282,9 +277,7 @@ body {
   right: -10px;
   border-color: rgb(3, 63, 78);
   border-width: 3px;
-}
-@media (max-width: 1200px) {
-  .bracket-team::after {
+  @media (max-width: 1200px) {
     display: none;
   }
 }
@@ -294,12 +287,6 @@ body {
   top: 50%;
   border-right-style: solid;
   border-top-style: solid;
-}
-
-.container {
-  max-width: 1250px;
-  display: flex;
-  margin: 0 auto;
 }
 
 .bracket-team:nth-of-type(even):after {
@@ -338,4 +325,45 @@ body {
 }
 .bracket-4 .bracket-team:after {
   display: none;
+}
+
+.champions {
+  position: absolute;
+  top: 24%;
+  right: 3.75%;
+  @media (max-width: 1200px) {
+    position: relative;
+    top: initial;
+    right: initial;
+  }
+  h2 {
+    font-size: 30px;
+  }
+}
+
+.champions-container {
+  position: relative;
+  background: $blue2;
+  padding: 5px 10px;
+  margin: 10px auto;
+  width: 250px;
+  height: 260px;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0px 0px 10px 1px rgb(0, 238, 255);
+  border-radius: 15px;
+}
+
+.champions-trophy {
+  height: 100px;
+  margin: 20px 0 10px;
+  > img {
+    height: 100px;
+  }
+}
+
+.champions-name {
+  padding: 10px 0 20px;
+  font-size: 30px;
+  font-weight: 600;
 }

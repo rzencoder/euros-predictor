@@ -6,10 +6,9 @@ import thirdPlaceChart from './data/thirdPlaceChart'
 import './App.scss';
 import { useEffect, useState } from 'react';
 import Knockouts from './components/Knockouts';
-import Champion from './components/Champion';
+import Champions from './components/Champions';
 import Collapsible from 'react-collapsible';
 import { groupScenario } from './data/groupScenario'
-import { group } from 'console';
 
 function App() {
   const [positions, setPositions] = useState(data);
@@ -219,6 +218,7 @@ function App() {
           <Knockouts teams={positions.quarters} handleClick={handleKnockoutClick} nextRound="semis" title="Quarter Finals" roundIndex="2" positions={positions} />
           <Knockouts teams={positions.semis} handleClick={handleKnockoutClick} nextRound="final" title="Semi Finals" roundIndex="3" positions={positions} />
           <Knockouts teams={positions.final} handleClick={handleKnockoutClick} nextRound="champions" title="Final" roundIndex="4" positions={positions} />
+          {positions.champions[0] && <Champions champions={positions.champions[0]} />}
         </div>
       </Collapsible>
       <button onClick={() => { decodeScenario() }}>decode</button>

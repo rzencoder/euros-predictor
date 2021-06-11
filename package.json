@@ -13,6 +13,7 @@
     "node-sass": "5.0.0",
     "react": "^17.0.2",
     "react-collapsible": "^2.8.3",
+    "react-confetti": "^6.0.1",
     "react-dom": "^17.0.2",
     "react-flags": "^0.1.18",
     "react-scripts": "4.0.3",
