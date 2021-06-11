@@ -14,6 +14,7 @@ export default function Group({ name, teams, positions, groupIndex, handleClick 
         <div className="group">
             <h2>{name}</h2>
             {teams.map(team => {
+                const ranking = getRanking(team.name);
                 return (
                     <div className="group-team-container" onClick={() => handleClick(team, groupIndex)}>
                         <div className="group-team">
@@ -26,7 +27,7 @@ export default function Group({ name, teams, positions, groupIndex, handleClick 
                             <div><div>{team.name}</div></div>
                         </div>
                         <div className="group-position">
-                            <div>{getRanking(team.name)}</div>
+                            <div className={ranking === "out" ? "out" : ""}>{ranking}</div>
                         </div>
                     </div>
                 )

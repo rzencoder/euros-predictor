@@ -21,14 +21,14 @@ export default function Knockouts({ teams, handleClick, nextRound, title, roundI
                             <div>
                                 {match[0] &&
                                     <div className="knockout-team" onClick={() => handleClick(match[0], index, nextRound)}>
-                                        <div>
+                                        <div className="knockout-team-name">
                                             <Flag
                                                 name={match[0].flag}
                                                 format="svg"
                                                 width="40"
                                                 basePath="/img/flags"
                                                 alt={`${match[0].name} flag`} />
-                                            <div className="knockout-team-name">{match[0].name}</div>
+                                            <div>{match[0].name}</div>
                                         </div>
                                         <div className="knockout-selector">
                                             {positions[nextRound].filter(el => el !== null).find(el => el.name === match[0].name) && <div>&#x2714;</div>}
@@ -36,18 +36,18 @@ export default function Knockouts({ teams, handleClick, nextRound, title, roundI
                                     </div>
                                 }
                             </div>
-                            <div>v</div>
+                            {(match[0] || match[1]) && <div>v</div>}
                             <div>
                                 {match[1] &&
                                     <div className="knockout-team" onClick={() => handleClick(match[1], index, nextRound)}>
-                                        <div>
+                                        <div className="knockout-team-name">
                                             <Flag
                                                 name={match[1].flag}
                                                 format="svg"
                                                 width="40"
                                                 basePath="/img/flags"
                                                 alt={`${match[1].name} flag`} />
-                                            <div className="knockout-team-name">{match[1].name}</div>
+                                            <div >{match[1].name}</div>
                                         </div>
                                         <div className="knockout-selector">
                                             {positions[nextRound].filter(el => el !== null).find(el => el.name === match[1].name) && <div>&#x2714;</div>}
