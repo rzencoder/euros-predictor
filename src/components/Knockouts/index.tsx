@@ -20,7 +20,7 @@ export default function Knockouts({ teams, handleClick, nextRound, title, roundI
                     return (
                         <div key={`knockout-stage-${roundIndex}-${index}}`} className="knockout-match bracket-team">
                             <div>
-                                {match[0] &&
+                                {match[0] && match[1] &&
                                     <div className="knockout-team" onClick={() => handleClick(match[0], index, nextRound)}>
                                         <div className="knockout-team-name">
                                             <Flag
@@ -34,9 +34,9 @@ export default function Knockouts({ teams, handleClick, nextRound, title, roundI
                                     </div>
                                 }
                             </div>
-                            {(match[0] || match[1]) && <div>v</div>}
+                            {(match[0] && match[1]) && <div>v</div>}
                             <div>
-                                {match[1] &&
+                                {match[1] && match[0] &&
                                     <div className="knockout-team" onClick={() => handleClick(match[1], index, nextRound)}>
                                         <div className="knockout-team-name">
                                             <Flag

@@ -12,7 +12,7 @@ export default function Champions({ champions }) {
                     height={270}
                 />
                 <div className="champions-trophy">
-                    <img src="/euros-predictor/img/trophy.png" alt="euros trophy" />
+                    <img src="./img/trophy.png" alt="euros trophy" />
                 </div>
                 <Flag
                     team={champions}

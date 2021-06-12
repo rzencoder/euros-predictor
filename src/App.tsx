@@ -10,6 +10,15 @@ import { groupTeams } from './utils';
 function App() {
   const [positions, setPositions] = useState(data);
   const [teams] = useState(groupTeams(teamsData.teams));
+  const [showShare, setShowShare] = useState(false);
+
+  useEffect(() => {
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    let scenarioString = params.get('scenario');
+    if (scenarioString && scenarioString.length === 25)
+      decodeScenario(scenarioString)
+  }, []);
 
   const handleGroupSelect = (team, groupName) => {
     const group = [...positions.groups[groupName].teams]
@@ -98,15 +107,20 @@ function App() {
 
   const encodeScenario = () => {
     let code = ""
-    teams.forEach(((group, index) => {
+    positions.groups.forEach(((group, index) => {
       let num = ""
-      group.forEach(team => {
-        let pos = positions.groups[index].teams.findIndex(el => el.name === team.name) + 1
-        if (pos === 0) pos = 4;
+      group.teams.forEach(team => {
+        let pos = teams[index].findIndex(el => el.name === team.name) + 1
         num += String(pos)
       })
+      if (!num.includes("1")) num += "1"
+      if (!num.includes("2")) num += "2"
+      if (!num.includes("3")) num += "3"
+      if (!num.includes("4")) num += "4"
+      console.log(num)
       const key = Object.keys(groupScenario).find(key => groupScenario[key] === num);
       code += key;
+
     }))
 
     const addTeamToCode = (round) => {
@@ -120,6 +134,7 @@ function App() {
     addTeamToCode('semis')
     addTeamToCode('final')
     addTeamToCode('champions')
+    return `rzencoder.github.io/euros-predictor?scenario=${code}`;
   }
 
   const decodeScenario = (code = "xxxxxxjnrvvkjsnwrgkswgsgg") => {
@@ -141,6 +156,7 @@ function App() {
           if (el === String(teamIndex + 1) && elIndex === 2) thirdPos.push({ ...team, groupIndex: index })
         })
       })
+      console.log(groupPos)
       newPositions.groups[index].teams = groupPos
       newPositions.thirdTeams = thirdPos
     })
@@ -173,7 +189,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="container">
       <h1 className="title">Euro <span>2020</span> Predictor</h1>
       <Collapsible trigger="Group Stage" open>
         <GroupStage matches={positions.groups} teams={teams} handleClick={handleGroupSelect} />
@@ -194,8 +210,20 @@ function App() {
           {positions.champions[0] && <Champions champions={positions.champions[0]} />}
         </div>
       </Collapsible>
-      <button onClick={() => { decodeScenario() }}>decode</button>
-      <button onClick={() => { encodeScenario() }}>encode</button>
+      {positions.champions[0] && <button className="share" onClick={() => setShowShare(true)}>
+        Share
+      </button>
+      }
+      {showShare && <div className="modal-overlay" onClick={() => setShowShare(false)}>
+        <div className="modal" onClick={() => setShowShare(true)}>
+          <div className="modal-container">
+            <button className="close" onClick={() => setShowShare(false)}>&#x2716;</button>
+            <div className="modal-link">{encodeScenario()}</div>
+            <button className="copy" onClick={() => navigator.clipboard.writeText(encodeScenario())}>Copy Link</button>
+          </div>
+        </div>
+      </div>}
+      {/* <button onClick={() => { decodeScenario() }}>decode</button> */}
     </div>
   );
 }
