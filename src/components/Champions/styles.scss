@@ -1,0 +1,42 @@
+@import "../../styles/variables";
+
+.champions {
+  position: absolute;
+  top: 24%;
+  right: 3.75%;
+  @media (max-width: 1200px) {
+    position: relative;
+    top: initial;
+    right: initial;
+  }
+  h2 {
+    font-size: 30px;
+  }
+}
+
+.champions-container {
+  position: relative;
+  background: $blue2;
+  padding: 5px 10px;
+  margin: 10px auto;
+  width: 250px;
+  height: 260px;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0px 0px 10px 1px $blue5;
+  border-radius: 15px;
+}
+
+.champions-trophy {
+  height: 100px;
+  margin: 20px 0 10px;
+  > img {
+    height: 100px;
+  }
+}
+
+.champions-name {
+  padding: 10px 0 20px;
+  font-size: 30px;
+  font-weight: 600;
+}

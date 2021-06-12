@@ -1,0 +1,1 @@
+export { groupTeams } from "./groupTeams";

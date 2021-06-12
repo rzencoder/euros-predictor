@@ -1,0 +1,43 @@
+@import "../../styles/variables";
+
+.third-place-league {
+  background: $blue2;
+  padding: 20px;
+  border-radius: 15px;
+  min-width: 300px;
+  width: 30%;
+  margin: 20px auto;
+}
+
+.third-place-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $blue3;
+  padding: 10px;
+  margin: 5px;
+  font-weight: 600;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.third-place-team {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  > div {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+}
+
+.third-place-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: $blue4;
+  border-radius: 50%;
+}

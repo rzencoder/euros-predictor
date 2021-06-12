@@ -1,0 +1,55 @@
+@import "_variables.scss";
+
+body {
+  color: white;
+  background-color: $blue1;
+  margin: 0;
+  text-align: center;
+  font-family: $main-font;
+}
+
+.title {
+  background: linear-gradient(45deg, #050129, #030265);
+  padding: 20px;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 50px;
+  @media screen and (max-width: 400px) {
+    font-size: 40px;
+  }
+  span {
+    color: $blue1;
+  }
+}
+
+.Collapsible__trigger {
+  background: linear-gradient(45deg, #ef4f03, #ca1d01);
+  width: 100%;
+  font-weight: 700;
+  font-size: 32px;
+  padding: 5px 0;
+  display: block;
+  cursor: pointer;
+  @media screen and (max-width: 400px) {
+    font-size: 26px;
+  }
+}
+
+.info {
+  padding: 30px 30px 10px;
+  font-size: 20px;
+  font-weight: 600;
+  width: 80%;
+  margin: 0 auto;
+  @media screen and (max-width: 400px) {
+    font-size: 18px;
+  }
+}
+
+.tick {
+  color: $green1;
+}
+
+.cross {
+  color: $red1;
+}

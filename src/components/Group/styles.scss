@@ -1,0 +1,45 @@
+@import "../../styles/variables";
+
+.group {
+  min-width: 300px;
+  background-color: $blue2;
+  width: 25%;
+  margin: 10px;
+  padding: 20px 10px;
+  border-radius: 20px;
+  h2 {
+    margin: 0px 0 20px 0;
+    text-transform: capitalize;
+  }
+}
+
+.group-team-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 10px 0;
+  background: $blue3;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.group-team {
+  display: flex;
+}
+
+.group-team div {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.group-position {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  .out {
+    color: $red1;
+  }
+}
