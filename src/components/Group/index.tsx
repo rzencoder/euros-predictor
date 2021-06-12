@@ -1,4 +1,4 @@
-import Flag from "react-flags";
+import { Flag } from '..';
 import './styles.scss';
 
 export default function Group({ name, teams, positions, groupIndex, handleClick }) {
@@ -19,12 +19,7 @@ export default function Group({ name, teams, positions, groupIndex, handleClick 
                 return (
                     <div key={`group-stage-${team.name}`} className="group-team-container" onClick={() => handleClick(team, groupIndex)}>
                         <div className="group-team">
-                            <Flag
-                                name={team.flag}
-                                format="svg"
-                                width={50}
-                                basePath="/img/flags"
-                                alt={`${team.name} flag`} />
+                            <Flag team={team} width="40px" />
                             <div><div>{team.name}</div></div>
                         </div>
                         <div className="group-position">

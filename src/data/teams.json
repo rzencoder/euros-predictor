@@ -2,7 +2,7 @@
   "teams": [
     { "name": "Turkey", "flag": "TR" },
     { "name": "Italy", "flag": "IT" },
-    { "name": "Wales", "flag": "_wales" },
+    { "name": "Wales", "flag": "wales" },
     {
       "name": "Switzerland",
       "flag": "CH"
@@ -41,7 +41,7 @@
     },
     {
       "name": "England",
-      "flag": "_england"
+      "flag": "england"
     },
     {
       "name": "Croatia",
@@ -49,7 +49,7 @@
     },
     {
       "name": "Scotland",
-      "flag": "_scotland"
+      "flag": "scotland"
     },
     {
       "name": "Czech Republic",

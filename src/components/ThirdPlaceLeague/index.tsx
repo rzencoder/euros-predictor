@@ -1,4 +1,4 @@
-import Flag from "react-flags";
+import { Flag } from '..';
 import './styles.scss';
 
 export default function ThirdPlaceLeague({ teams, calculateThirdPlaceLeague, positions }) {
@@ -17,11 +17,8 @@ export default function ThirdPlaceLeague({ teams, calculateThirdPlaceLeague, pos
                         <div key={`third-place-league-${team.name}`} className="third-place-container" onClick={() => calculateThirdPlaceLeague(team)}>
                             <div className="third-place-team">
                                 <Flag
-                                    name={team.flag}
-                                    format="svg"
-                                    width={50}
-                                    basePath="/img/flags"
-                                    alt={`${team.name} flag`} />
+                                    team={team}
+                                    width="50px" />
                                 <div><div>{team.name}</div></div>
                             </div>
                             <div className="third-place-selector"><div>{getRanking(team.name)}</div></div>
