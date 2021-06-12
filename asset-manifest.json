@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/euros-predictor/static/css/main.6076fba4.chunk.css",
-    "main.js": "/euros-predictor/static/js/main.b93ad922.chunk.js",
-    "main.js.map": "/euros-predictor/static/js/main.b93ad922.chunk.js.map",
+    "main.js": "/euros-predictor/static/js/main.8c88c146.chunk.js",
+    "main.js.map": "/euros-predictor/static/js/main.8c88c146.chunk.js.map",
     "runtime-main.js": "/euros-predictor/static/js/runtime-main.b98df767.js",
     "runtime-main.js.map": "/euros-predictor/static/js/runtime-main.b98df767.js.map",
     "static/js/2.b9157b02.chunk.js": "/euros-predictor/static/js/2.b9157b02.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.b98df767.js",
     "static/js/2.b9157b02.chunk.js",
     "static/css/main.6076fba4.chunk.css",
-    "static/js/main.b93ad922.chunk.js"
+    "static/js/main.8c88c146.chunk.js"
   ]
 }
