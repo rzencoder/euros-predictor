@@ -1,0 +1,36 @@
+@import "../../styles/variables";
+
+.knockout-team {
+  background: $blue3;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 18px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.knockout-team-name {
+  display: flex;
+  justify-content: space-between;
+  > div {
+    margin-left: 10px;
+  }
+}
+
+.knockout-selector {
+  width: 30px;
+  height: 30px;
+  background-color: $blue4;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 20px;
+}

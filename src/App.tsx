@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { GroupStage, ThirdPlaceLeague, Knockouts, Champions } from './components';
+import { GroupStage, ThirdPlaceLeague, Knockouts, Champions, Share } from './components';
 import teamsData from './data/teams.json';
 import data from './data/data.json';
 import thirdPlaceChart from './data/thirdPlaceChart'
-import { groupScenario } from './data/groupScenario'
 import Collapsible from 'react-collapsible';
-import { groupTeams } from './utils';
+import { decodeScenario, groupTeams } from './utils';
 
 function App() {
   const [positions, setPositions] = useState(data);
@@ -17,7 +16,7 @@ function App() {
     let params = new URLSearchParams(search);
     let scenarioString = params.get('scenario');
     if (scenarioString && scenarioString.length === 25)
-      decodeScenario(scenarioString)
+      decodeScenario(scenarioString, { ...positions }, teams, calculateSecondRound, calculateThirdPlaceIntoKnockout)
   }, []);
 
   const handleGroupSelect = (team, groupName) => {
@@ -34,7 +33,6 @@ function App() {
       group.push(team)
     }
     const newPositions = { ...positions };
-
     newPositions.groups[groupName].teams = group
     calculateSecondRound(newPositions)
   }
@@ -105,89 +103,6 @@ function App() {
     setPositions(newPositions)
   }
 
-  const encodeScenario = () => {
-    let code = ""
-    positions.groups.forEach(((group, index) => {
-      let num = ""
-      group.teams.forEach(team => {
-        let pos = teams[index].findIndex(el => el.name === team.name) + 1
-        num += String(pos)
-      })
-      if (!num.includes("1")) num += "1"
-      if (!num.includes("2")) num += "2"
-      if (!num.includes("3")) num += "3"
-      if (!num.includes("4")) num += "4"
-      console.log(num)
-      const key = Object.keys(groupScenario).find(key => groupScenario[key] === num);
-      code += key;
-
-    }))
-
-    const addTeamToCode = (round) => {
-      positions[round].forEach(team => {
-        let index = teamsData.teams.findIndex(el => el.name === team.name);
-        code += String.fromCharCode(index + 97)
-      })
-    }
-    addTeamToCode('thirdPositions')
-    addTeamToCode('quarters')
-    addTeamToCode('semis')
-    addTeamToCode('final')
-    addTeamToCode('champions')
-    return `rzencoder.github.io/euros-predictor?scenario=${code}`;
-  }
-
-  const decodeScenario = (code = "xxxxxxjnrvvkjsnwrgkswgsgg") => {
-    const groupCode = code.substring(0, 6).split('')
-    const thirdsCode = code.substring(6, 10).split('')
-    const quartersCode = code.substring(10, 18).split('')
-    const semisCode = code.substring(18, 22).split('')
-    const finalCode = code.substring(22, 24).split('')
-    const championCode = code.substring(24, 25).split('')
-    const newPositions = { ...positions }
-    const groupNum = groupCode.map(el => groupScenario[el].split(''));
-    const thirdPos = []
-
-    groupNum.forEach((group, index) => {
-      let groupPos = []
-      group.forEach((el, elIndex) => {
-        teams[index].forEach((team, teamIndex) => {
-          if (el === String(teamIndex + 1) && elIndex !== 3) groupPos.push(team)
-          if (el === String(teamIndex + 1) && elIndex === 2) thirdPos.push({ ...team, groupIndex: index })
-        })
-      })
-      console.log(groupPos)
-      newPositions.groups[index].teams = groupPos
-      newPositions.thirdTeams = thirdPos
-    })
-    const newPositions2 = calculateSecondRound(newPositions)
-
-    const a = thirdsCode.map(el => {
-      const team = teamsData.teams[el.charCodeAt(0) - 97]
-      let groupIndex;
-      teams.forEach((group, index) => {
-        group.forEach(el => {
-          if (el.name === team.name) {
-            groupIndex = index;
-          }
-        })
-      })
-      return { ...team, groupIndex }
-    })
-
-    const knockoutDecoder = (round, code) => {
-      const a = code.map(el => teamsData.teams[el.charCodeAt(0) - 97])
-      newPositions2[round] = a;
-    }
-
-    knockoutDecoder("quarters", quartersCode)
-    knockoutDecoder("semis", semisCode)
-    knockoutDecoder("final", finalCode)
-    knockoutDecoder("champions", championCode)
-    newPositions2.thirdPositions = a
-    calculateThirdPlaceIntoKnockout(newPositions2)
-  }
-
   return (
     <div className="container">
       <h1 className="title">Euro <span>2020</span> Predictor</h1>
@@ -214,16 +129,7 @@ function App() {
         Share
       </button>
       }
-      {showShare && <div className="modal-overlay" onClick={() => setShowShare(false)}>
-        <div className="modal" onClick={() => setShowShare(true)}>
-          <div className="modal-container">
-            <button className="close" onClick={() => setShowShare(false)}>&#x2716;</button>
-            <div className="modal-link">{encodeScenario()}</div>
-            <button className="copy" onClick={() => navigator.clipboard.writeText(encodeScenario())}>Copy Link</button>
-          </div>
-        </div>
-      </div>}
-      {/* <button onClick={() => { decodeScenario() }}>decode</button> */}
+      {showShare && <Share setShowShare={setShowShare} positions={positions} teams={teams} />}
     </div>
   );
 }
