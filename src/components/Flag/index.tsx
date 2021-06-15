@@ -1,8 +1,17 @@
-import './styles.scss'
+import "./styles.scss";
+import { Team } from '../../types/Team'
 
-export default function Flag({ team, width = "50px" }) {
-    return (
-        <img style={{ width }} src={`./img/flags/${team.flag}.svg`}
-            alt={`${team.name} flag`} />
-    )
+interface IFlag {
+  team: Team
+  width?: string
+}
+
+export default function Flag({ team, width = "50px" }: IFlag) {
+  return (
+    <img
+      style={{ width }}
+      src={`./img/flags/${team.flag}.svg`}
+      alt={`${team.name} flag`}
+    />
+  );
 }

@@ -1,32 +1,65 @@
-import { KnockoutMatch } from '..';
-import { formatKnockoutTeams } from '../../utils';
-import './styles.scss';
+import { KnockoutMatch } from "..";
+import { Positions } from "../../types/Positions";
+import { Rounds } from "../../types/Rounds";
+import { Team } from "../../types/Team";
+import { formatKnockoutTeams } from "../../utils";
+import "./styles.scss";
 
-export default function Knockouts({ teams, handleClick, nextRound, title, roundIndex, positions }) {
-    const formattedTeams = formatKnockoutTeams([...teams])
-    return (
-        <div className="knockout-stage" >
-            <h2>{title}</h2>
-            <div className={`knockout-round-container bracket-${roundIndex}`}>
-                {formattedTeams.map((match, index) => {
-                    return (
-                        <div key={`knockout-stage-${roundIndex}-${index}}`} className="knockout-match bracket-team">
-                            <div>
-                                {match[0] && match[1] &&
-                                    <KnockoutMatch match={match[0]} index={index} nextRound={nextRound} round={positions[nextRound]} handleClick={handleClick} />
-                                }
-                            </div>
-                            {(match[0] && match[1]) && <div>v</div>}
-                            <div>
-                                {match[1] && match[0] &&
-                                    <KnockoutMatch match={match[1]} index={index} nextRound={nextRound} round={positions[nextRound]} handleClick={handleClick} />
-                                }
-                            </div>
-                        </div>
+interface IKnockouts {
+  teams: (Team | null)[];
+  handleClick: (team: Team, index: number, round: string) => void;
+  nextRound: Rounds;
+  title: string;
+  roundIndex: string;
+  positions: (Team | null)[]
+}
 
-                    )
-                })}
+export default function Knockouts({
+  teams,
+  handleClick,
+  nextRound,
+  title,
+  roundIndex,
+  positions,
+}: IKnockouts) {
+  const formattedTeams = formatKnockoutTeams([...teams]);
+  return (
+    <div className="knockout-stage">
+      <h2>{title}</h2>
+      <div className={`knockout-round-container bracket-${roundIndex}`}>
+        {formattedTeams.map((match, index) => {
+          return (
+            <div
+              key={`knockout-stage-${roundIndex}-${index}}`}
+              className="knockout-match bracket-team"
+            >
+              <div>
+                {match[0] && match[1] && (
+                  <KnockoutMatch
+                    match={match[0]}
+                    index={index}
+                    nextRound={nextRound}
+                    round={positions}
+                    handleClick={handleClick}
+                  />
+                )}
+              </div>
+              {match[0] && match[1] && <div>v</div>}
+              <div>
+                {match[1] && match[0] && (
+                  <KnockoutMatch
+                    match={match[1]}
+                    index={index}
+                    nextRound={nextRound}
+                    round={positions}
+                    handleClick={handleClick}
+                  />
+                )}
+              </div>
             </div>
-        </div>
-    )
+          );
+        })}
+      </div>
+    </div>
+  );
 }
