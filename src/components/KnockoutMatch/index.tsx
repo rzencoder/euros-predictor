@@ -1,16 +1,14 @@
 import { Flag } from "..";
 import { Team } from "../../types/Team";
-import { Group } from "../../types/Group";
 import "./styles.scss";
 
 interface IKnockoutMatch {
-  match: Team
-  index: number
-  nextRound: string
-  round: (Team | null)[]
-  handleClick: (match: Team, index: number, nextRound: string) => void
+  match: Team;
+  index: number;
+  nextRound: string;
+  round: (Team | null)[];
+  handleClick: (match: Team, index: number, nextRound: string) => void;
 }
-
 
 export default function KnockoutMatch({
   match,
@@ -20,7 +18,6 @@ export default function KnockoutMatch({
   handleClick,
 }: IKnockoutMatch) {
   return (
-
     <div
       className="knockout-team"
       onClick={() => handleClick(match, index, nextRound)}
@@ -34,8 +31,8 @@ export default function KnockoutMatch({
           .filter((el) => el !== null)
           .find((el) => {
             if (el) {
-              return el.name === match.name
-            }
+              return el.name === match.name;
+            } else return false;
           }) && <div>&#x2714;</div>}
       </div>
     </div>

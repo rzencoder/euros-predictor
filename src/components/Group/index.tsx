@@ -5,11 +5,11 @@ import { getGroupRanking } from "../../utils";
 import "./styles.scss";
 
 interface IGroup {
-  name: string
-  teams: Team[]
-  positions: GroupType
-  groupIndex: number
-  handleClick: (team: Team, groupIndex: number) => void
+  name: string;
+  teams: Team[];
+  positions: GroupType;
+  groupIndex: number;
+  handleClick: (team: Team, groupIndex: number) => void;
 }
 
 export default function Group({

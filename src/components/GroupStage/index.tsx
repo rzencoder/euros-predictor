@@ -4,12 +4,16 @@ import { Team } from "../../types/Team";
 import "./styles.scss";
 
 interface IGroupStage {
-  matches: IGroup[]
-  teams: Team[][]
-  handleClick: (team: Team, groupIndex: number) => void
+  matches: IGroup[];
+  teams: Team[][];
+  handleClick: (team: Team, groupIndex: number) => void;
 }
 
-export default function GroupStage({ matches, teams, handleClick }: IGroupStage) {
+export default function GroupStage({
+  matches,
+  teams,
+  handleClick,
+}: IGroupStage) {
   return (
     <div>
       <div className="info">

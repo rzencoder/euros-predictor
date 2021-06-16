@@ -5,7 +5,7 @@ import "./styles.scss";
 interface IThirdPlaceLeague {
   teams: (Team | null)[];
   calculateThirdPlaceLeague: (team: Team) => void;
-  positions: (Team | null)[]
+  positions: (Team | null)[];
 }
 
 export default function ThirdPlaceLeague({
@@ -13,12 +13,16 @@ export default function ThirdPlaceLeague({
   calculateThirdPlaceLeague,
   positions,
 }: IThirdPlaceLeague) {
-  const displayThirdPlaceStatus = (name: string, positions: (Team | null)[]) => {
-    const index = positions.findIndex((el) => {
-      if (el) {
-        return el.name === name
-      }
-    }) + 1;
+  const displayThirdPlaceStatus = (
+    name: string,
+    positions: (Team | null)[]
+  ) => {
+    const index =
+      positions.findIndex((el) => {
+        if (el) {
+          return el.name === name;
+        } else return false;
+      }) + 1;
     if (index === 0 && positions.length === 4)
       return <div className="cross">&#x2716;</div>;
     return index === 0 ? (
@@ -57,7 +61,7 @@ export default function ThirdPlaceLeague({
                 </div>
               </div>
             );
-          }
+          } else return null;
         })}
       </div>
     </div>

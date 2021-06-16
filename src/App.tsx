@@ -11,8 +11,8 @@ import data from "./data/data.json";
 import thirdPlaceChart from "./data/thirdPlaceChart";
 import Collapsible from "react-collapsible";
 import { decodeScenario, groupTeams } from "./utils";
-import { Team } from './types/Team'
-import { Positions } from './types/Positions'
+import { Team } from "./types/Team";
+import { Positions } from "./types/Positions";
 import { Rounds } from "./types/Rounds";
 
 function App() {
@@ -32,6 +32,7 @@ function App() {
         calculateSecondRound,
         calculateThirdPlaceIntoKnockout
       );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleGroupSelect = (team: Team, groupIndex: number) => {
     const group: Team[] = [...positions.groups[groupIndex].teams];
@@ -72,13 +73,21 @@ function App() {
 
   const calculateThirdPlaceLeague = (team: Team) => {
     const thirdTeams = [...positions.thirdPositions];
-    if (thirdTeams.some((el) => {
-      if (el !== null) {
-        return el.name === team.name;
-      }
-    })) {
+    if (
+      thirdTeams.some((el) => {
+        if (el !== null) {
+          return el.name === team.name;
+        } else {
+          return false;
+        }
+      })
+    ) {
       // @ts-ignore: Object is possibly 'null'
-      if (thirdTeams[thirdTeams.length - 1] && thirdTeams[thirdTeams.length - 1].name === team.name) {
+      if (
+        thirdTeams[thirdTeams.length - 1] &&
+        // @ts-ignore: Object is possibly 'null'
+        thirdTeams[thirdTeams.length - 1].name === team.name
+      ) {
         thirdTeams.pop();
       } else {
         thirdTeams.length = 0;
@@ -98,7 +107,7 @@ function App() {
     newPositions.secondRound[13] = null;
 
     if (thirdTeams.length > 3) {
-      // @ts-ignore: Object is possibly 'null'  
+      // @ts-ignore: Object is possibly 'null'
       thirdTeams.sort((a, b) => a.groupIndex - b.groupIndex);
       newPositions.thirdPositions = thirdTeams;
       calculateThirdPlaceIntoKnockout(newPositions);
@@ -109,7 +118,6 @@ function App() {
   };
 
   const calculateThirdPlaceIntoKnockout = (newPositions: Positions) => {
-
     let thirdPlaceGroups = newPositions.thirdPositions
       // @ts-ignore: Object is possibly 'null'
       .map((el) => el.groupIndex + 1)
@@ -127,7 +135,7 @@ function App() {
   const handleKnockoutClick = (team: Team, index: number, round: string) => {
     const newPositions = { ...positions };
     newPositions[round.toString() as Rounds][index] = team;
-    setPositions(newPositions)
+    setPositions(newPositions);
   };
 
   return (
@@ -161,7 +169,7 @@ function App() {
             nextRound="quarters"
             title="Round of 16"
             roundIndex="1"
-            positions={positions['quarters']}
+            positions={positions["quarters"]}
           />
           <Knockouts
             teams={positions.quarters}
@@ -169,7 +177,7 @@ function App() {
             nextRound="semis"
             title="Quarter Finals"
             roundIndex="2"
-            positions={positions['semis']}
+            positions={positions["semis"]}
           />
           <Knockouts
             teams={positions.semis}
@@ -177,7 +185,7 @@ function App() {
             title="Semi Finals"
             nextRound="final"
             roundIndex="3"
-            positions={positions['final']}
+            positions={positions["final"]}
           />
           <Knockouts
             teams={positions.final}
@@ -185,7 +193,7 @@ function App() {
             nextRound="champions"
             title="Final"
             roundIndex="4"
-            positions={positions['champions']}
+            positions={positions["champions"]}
           />
           {positions.champions[0] && (
             <Champions champions={positions.champions[0]} />

@@ -1,9 +1,9 @@
 import "./styles.scss";
-import { Team } from '../../types/Team'
+import { Team } from "../../types/Team";
 
 interface IFlag {
-  team: Team
-  width?: string
+  team: Team;
+  width?: string;
 }
 
 export default function Flag({ team, width = "50px" }: IFlag) {

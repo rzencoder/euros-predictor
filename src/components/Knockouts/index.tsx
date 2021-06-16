@@ -1,5 +1,4 @@
 import { KnockoutMatch } from "..";
-import { Positions } from "../../types/Positions";
 import { Rounds } from "../../types/Rounds";
 import { Team } from "../../types/Team";
 import { formatKnockoutTeams } from "../../utils";
@@ -11,7 +10,7 @@ interface IKnockouts {
   nextRound: Rounds;
   title: string;
   roundIndex: string;
-  positions: (Team | null)[]
+  positions: (Team | null)[];
 }
 
 export default function Knockouts({

@@ -4,10 +4,10 @@ import "./styles.scss";
 
 interface IChampions {
   champions: {
-    name: string
-    flag: string
-    groupIndex?: number
-  }
+    name: string;
+    flag: string;
+    groupIndex?: number;
+  };
 }
 
 export default function Champions({ champions }: IChampions) {

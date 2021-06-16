@@ -1,13 +1,17 @@
+import { Rounds } from "./../types/Rounds";
+import { Positions } from "./../types/Positions";
 import { groupScenario } from "../data/groupScenario";
 import teamsData from "../data/teams.json";
+import { Team } from "../types/Team";
+import { CodeScenario } from "../types/CodeScenario";
 
 // Converting the url query from string back into an object containing the predictions for that scenario
 export const decodeScenario = (
-  code,
-  newPositions,
-  teams,
-  calculateSecondRound,
-  calculateThirdPlaceIntoKnockout
+  code: string,
+  newPositions: Positions,
+  teams: Team[][],
+  calculateSecondRound: (newPositions: Positions) => Positions,
+  calculateThirdPlaceIntoKnockout: (newPositions: Positions) => void
 ) => {
   //Split the code by rounds
   const groupCode = code.substring(0, 6).split("");
@@ -16,15 +20,23 @@ export const decodeScenario = (
   const semisCode = ["semis", code.substring(18, 22).split("")];
   const finalCode = ["final", code.substring(22, 24).split("")];
   const championsCode = ["champions", code.substring(24, 25).split("")];
-  const knockoutCodes = [quartersCode, semisCode, finalCode, championsCode];
+  const knockoutCodes: any = [
+    quartersCode,
+    semisCode,
+    finalCode,
+    championsCode,
+  ];
 
   // Convert the group code from a letter into a four number string containing the index of a team with the index being the position they have been predicted to finish
-  const groupNum = groupCode.map((el) => groupScenario[el].split(""));
-  const thirdPos = [];
+  const groupNum = groupCode.map((el) =>
+    groupScenario[el.toString() as CodeScenario].split("")
+  );
+
+  const thirdPos: (Team | null)[] = [];
 
   // Loop through the four number string for each group and find the index of the team from their original start position in the group
   groupNum.forEach((group, index) => {
-    let groupPos = [];
+    let groupPos: Team[] = [];
     group.forEach((el, elIndex) => {
       teams[index].forEach((team, teamIndex) => {
         // Push the team to the array apart from the fourth placed team which this isn't required for. Also add the third place team to an additional array for the third place league
@@ -54,12 +66,11 @@ export const decodeScenario = (
 
   newPositions2.thirdPositions = decodedThirdPlaces;
 
-  knockoutCodes.forEach((code) => {
-    const decodedKnockoutRound = code[1].map(
-      (el) => teamsData.teams[el.charCodeAt(0) - 97]
+  knockoutCodes.forEach((knockoutCode: any) => {
+    const decodedKnockoutRound = knockoutCode[1].map(
+      (el: string) => teamsData.teams[el.charCodeAt(0) - 97]
     );
-    newPositions2[code[0]] = decodedKnockoutRound;
+    newPositions2[knockoutCode[0].toString() as Rounds] = decodedKnockoutRound;
   });
-
   calculateThirdPlaceIntoKnockout(newPositions2);
 };

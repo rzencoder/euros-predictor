@@ -6,7 +6,7 @@ import "./styles.scss";
 interface IShare {
   setShowShare: (showShare: boolean) => void;
   positions: Positions;
-  teams: Team[]
+  teams: Team[][];
 }
 
 export default function Share({ setShowShare, positions, teams }: IShare) {
