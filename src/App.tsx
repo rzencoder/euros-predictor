@@ -16,7 +16,9 @@ import { Positions } from "./types/Positions";
 import { Rounds } from "./types/Rounds";
 
 function App() {
-  const [positions, setPositions] = useState<Positions>(data);
+  const [positions, setPositions] = useState<Positions>(
+    JSON.parse(JSON.stringify(data))
+  );
   const [teams] = useState(groupTeams(teamsData.teams));
   const [showShare, setShowShare] = useState(false);
 
@@ -218,6 +220,14 @@ function App() {
           teams={teams}
         />
       )}
+      <div>
+        <button
+          className="reset"
+          onClick={() => setPositions(JSON.parse(JSON.stringify(data)))}
+        >
+          Reset Prediction
+        </button>
+      </div>
     </div>
   );
 }
