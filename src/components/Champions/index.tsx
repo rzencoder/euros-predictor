@@ -1,16 +1,16 @@
 import Confetti from "react-confetti";
 import { Flag } from "..";
 import "./styles.scss";
-
 interface IChampions {
   champions: {
     name: string;
     flag: string;
     groupIndex?: number;
   };
+  setShowShare: (showShare: boolean) => void;
 }
 
-export default function Champions({ champions }: IChampions) {
+export default function Champions({ champions, setShowShare }: IChampions) {
   return (
     <div className="champions">
       <h2>Champions</h2>
@@ -21,6 +21,12 @@ export default function Champions({ champions }: IChampions) {
         </div>
         <Flag team={champions} width="80px" />
         <div className="champions-name">{champions.name}</div>
+        <button
+          className="share share-desktop"
+          onClick={() => setShowShare(true)}
+        >
+          Share Prediction
+        </button>
       </div>
     </div>
   );

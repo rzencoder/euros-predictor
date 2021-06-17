@@ -57,3 +57,34 @@ body {
 .cross {
   color: $red1;
 }
+
+.share {
+  background: #ff4400;
+  color: white;
+  border-radius: 5px;
+  font-size: 24px;
+  margin: 10px 0;
+  padding: 10px 13px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: $main-font;
+  &:hover {
+    background: #ce3801;
+  }
+}
+
+.share-desktop {
+  display: none;
+  @media screen and (min-width: 1200px) {
+    display: inline-block;
+  }
+}
+
+.share-mobile {
+  display: none;
+  @media screen and (max-width: 1200px) {
+    display: inline-block;
+  }
+}

@@ -196,13 +196,19 @@ function App() {
             positions={positions["champions"]}
           />
           {positions.champions[0] && (
-            <Champions champions={positions.champions[0]} />
+            <Champions
+              champions={positions.champions[0]}
+              setShowShare={setShowShare}
+            />
           )}
         </div>
       </Collapsible>
       {positions.champions[0] && (
-        <button className="share" onClick={() => setShowShare(true)}>
-          Share
+        <button
+          className="share share-mobile"
+          onClick={() => setShowShare(true)}
+        >
+          Share Prediction
         </button>
       )}
       {showShare && (
