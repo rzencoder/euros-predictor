@@ -7,7 +7,13 @@ interface IKnockoutMatch {
   index: number;
   nextRound: string;
   round: (Team | null)[];
-  handleClick: (match: Team, index: number, nextRound: string) => void;
+  handleClick: (
+    match: Team,
+    index: number,
+    nextRound: string,
+    opponent: Team
+  ) => void;
+  opponent: Team;
 }
 
 export default function KnockoutMatch({
@@ -16,11 +22,12 @@ export default function KnockoutMatch({
   round,
   nextRound,
   handleClick,
+  opponent,
 }: IKnockoutMatch) {
   return (
     <div
       className="knockout-team"
-      onClick={() => handleClick(match, index, nextRound)}
+      onClick={() => handleClick(match, index, nextRound, opponent)}
     >
       <div className="knockout-team-name">
         <Flag team={match} width="40px" />

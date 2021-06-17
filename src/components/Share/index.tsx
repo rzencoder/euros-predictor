@@ -10,7 +10,7 @@ interface IShare {
 }
 
 export default function Share({ setShowShare, positions, teams }: IShare) {
-  const url = encodeScenario(positions, teams);
+  const url = encodeScenario(JSON.parse(JSON.stringify(positions)), teams);
   return (
     <div className="modal-overlay" onClick={() => setShowShare(false)}>
       <div className="modal" onClick={() => setShowShare(true)}>

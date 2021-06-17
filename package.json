@@ -2,7 +2,7 @@
   "name": "euros-predictor",
   "version": "0.1.0",
   "private": true,
-  "licence": "MIT",
+  "license": "MIT",
   "homepage": "https://rzencoder.github.io/euros-predictor",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",

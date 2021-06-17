@@ -6,7 +6,12 @@ import "./styles.scss";
 
 interface IKnockouts {
   teams: (Team | null)[];
-  handleClick: (team: Team, index: number, round: string) => void;
+  handleClick: (
+    team: Team,
+    index: number,
+    round: string,
+    opponent: Team
+  ) => void;
   nextRound: Rounds;
   title: string;
   roundIndex: string;
@@ -40,6 +45,7 @@ export default function Knockouts({
                     nextRound={nextRound}
                     round={positions}
                     handleClick={handleClick}
+                    opponent={match[1]}
                   />
                 )}
               </div>
@@ -52,6 +58,7 @@ export default function Knockouts({
                     nextRound={nextRound}
                     round={positions}
                     handleClick={handleClick}
+                    opponent={match[0]}
                   />
                 )}
               </div>

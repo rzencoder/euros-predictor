@@ -34,8 +34,17 @@ body {
   padding: 5px 0;
   display: block;
   cursor: pointer;
+  position: relative;
   @media screen and (max-width: 400px) {
     font-size: 26px;
+  }
+  &:after {
+    content: "▼";
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    right: 10px;
+    top: 18px;
   }
 }
 
