@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/euros-predictor/static/css/main.06308fa4.chunk.css",
-    "main.js": "/euros-predictor/static/js/main.e6badbcc.chunk.js",
-    "main.js.map": "/euros-predictor/static/js/main.e6badbcc.chunk.js.map",
+    "main.css": "/euros-predictor/static/css/main.7217ae2d.chunk.css",
+    "main.js": "/euros-predictor/static/js/main.4dbd6f00.chunk.js",
+    "main.js.map": "/euros-predictor/static/js/main.4dbd6f00.chunk.js.map",
     "runtime-main.js": "/euros-predictor/static/js/runtime-main.b98df767.js",
     "runtime-main.js.map": "/euros-predictor/static/js/runtime-main.b98df767.js.map",
-    "static/js/2.cd41c465.chunk.js": "/euros-predictor/static/js/2.cd41c465.chunk.js",
-    "static/js/2.cd41c465.chunk.js.map": "/euros-predictor/static/js/2.cd41c465.chunk.js.map",
+    "static/js/2.a07b9676.chunk.js": "/euros-predictor/static/js/2.a07b9676.chunk.js",
+    "static/js/2.a07b9676.chunk.js.map": "/euros-predictor/static/js/2.a07b9676.chunk.js.map",
     "index.html": "/euros-predictor/index.html",
-    "static/css/main.06308fa4.chunk.css.map": "/euros-predictor/static/css/main.06308fa4.chunk.css.map",
-    "static/js/2.cd41c465.chunk.js.LICENSE.txt": "/euros-predictor/static/js/2.cd41c465.chunk.js.LICENSE.txt"
+    "static/css/main.7217ae2d.chunk.css.map": "/euros-predictor/static/css/main.7217ae2d.chunk.css.map",
+    "static/js/2.a07b9676.chunk.js.LICENSE.txt": "/euros-predictor/static/js/2.a07b9676.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b98df767.js",
-    "static/js/2.cd41c465.chunk.js",
-    "static/css/main.06308fa4.chunk.css",
-    "static/js/main.e6badbcc.chunk.js"
+    "static/js/2.a07b9676.chunk.js",
+    "static/css/main.7217ae2d.chunk.css",
+    "static/js/main.4dbd6f00.chunk.js"
   ]
 }
